@@ -1,0 +1,21 @@
+
+
+<title>Products</title>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/detail.css' %}">
+    <body>
+        <img src="{{ cap.image.url }}" height="300px"><br><br>
+        {% if user.is_staff %}
+            <a href="{% url 'products:delete-cap' cap.pk %}">Delete</a><br>
+        {% endif %}
+        <a href="{% url 'products:save-cap' cap.pk %}"><button>Save</button></a>
+        <h3>Name: {{ cap.name }}</h3>
+        <h4>Category: {{ cap.category_name }}</h4>
+        <h4>Make: {{ cap.make }}</h4>
+        <h4>Color: {{ cap.color }}</h4>
+        <h4>Price: {{ cap.price }}$</h4>
+        <a href="{% url 'products:add-review' cap.pk %}">Add comment</a>
+    </body>
+{% endblock content %}

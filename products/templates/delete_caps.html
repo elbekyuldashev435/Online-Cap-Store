@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DeleteCaps</title>
+</head>
+<body><br><br><br>
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Confirm"><br><br>
+  </form>
+  <a href="{% url 'products:category-list' %}"><button>No</button></a>
+</body>
+</html>

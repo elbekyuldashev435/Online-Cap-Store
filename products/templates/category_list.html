@@ -1,0 +1,18 @@
+
+
+<title>Category</title>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <body>
+        {% for i in form %}
+            {% if i.id == 1 %}
+            <a href="{% url 'products:male-list' i.pk %}">{{ i.name }}</a><br><br>
+            {% elif i.id == 2 %}
+            <a href="{% url 'products:female-list' i.pk %}">{{ i.name }}</a>
+            {% else %}
+            <a href="#">{{ i.name }}</a><br>
+            {% endif %}
+        {% endfor %}
+    </body>
+{% endblock content %}

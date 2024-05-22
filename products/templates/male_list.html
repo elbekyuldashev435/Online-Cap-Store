@@ -1,0 +1,16 @@
+
+
+<title>MaleCategory</title>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/female.css' %}">
+    <a href="{% url 'products:create-cap' %}"><button>Add Cap</button></a>
+    <body><br><br><br>
+        {% for i in male_caps %}
+                <a href="{% url 'products:detail' i.pk %}"><img src="{{ i.image.url }}" height="200px"></a> <br><br>
+                <h4>Make: {{ i.make}}</h4>
+                <h4>Price: {{ i.price }}$</h4>
+        {% endfor %}
+    </body>
+{% endblock content %}
